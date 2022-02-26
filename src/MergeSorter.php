@@ -34,6 +34,7 @@ class MergeSorter
 
                 continue;
             }
+
             $result[] = $rightArray[$rightIndex];
             $rightIndex += 1;
         }
