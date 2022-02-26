@@ -1,0 +1,23 @@
+{
+    "name": "fnsc/katas",
+    "description": "Algorithms katas as study purpose",
+    "require": {
+        "php": "8.1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fnsc\\Katas\\": "src/"
+        }
+    },
+     "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Fonseca"
+        }
+    ]
+}
