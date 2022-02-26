@@ -4,19 +4,27 @@ namespace Fnsc\Katas;
 
 use Fnsc\Katas\Exceptions\TargetException;
 
-class BinarySearcher
+final class BinarySearcher
 {
-    private array $data;
+    private MergeSorter $sorter;
+
     private int $start = 0;
+
     private int $end = 0;
+
+    private array $data;
+
+    public function __construct(MergeSorter $sorter)
+    {
+        $this->sorter = $sorter;
+    }
 
     /**
      * @throws TargetException
      */
     public function search(array $data, mixed $target): mixed
     {
-        sort($data);
-        $this->data = $data;
+        $this->data = $this->sorter->sort($data);
         $this->setEnd();
 
         return $this->binarySearch($target);
