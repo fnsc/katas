@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use Fnsc\Katas\BinarySearcher;
+use Fnsc\Katas\Exceptions\TargetException;
 use PHPUnit\Framework\TestCase;
 
 class BinarySearchTest extends TestCase
@@ -18,7 +19,7 @@ class BinarySearchTest extends TestCase
         $result = $searcher->search($data, $target);
 
         // Assertions
-        $this->assertTrue($result);
+        $this->assertSame(3245, $result);
     }
 
     public function testShouldReturnFalseWhenDoesNotFindTheTargetInAnArray(): void
@@ -28,10 +29,10 @@ class BinarySearchTest extends TestCase
         $target = 1000000000;
         $searcher = new BinarySearcher();
 
-        // Actions
-        $result = $searcher->search($data, $target);
+        // Expectations
+        $this->expectException(TargetException::class);
 
-        // Assertions
-        $this->assertFalse($result);
+        // Actions
+        $searcher->search($data, $target);
     }
 }
