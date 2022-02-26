@@ -2,7 +2,7 @@
 
 namespace Fnsc\Katas;
 
-class MergeSorter
+final class MergeSorter
 {
     private const MINIMUM_NUMBER_OF_ELEMENTS = 2;
 
@@ -18,10 +18,10 @@ class MergeSorter
         $leftArray = array_slice($data, 0, $middleIndex);
         $rightArray = array_slice($data, $middleIndex, $elementsQuantity);
 
-        return $this->mergeSort($this->sort($leftArray), $this->sort($rightArray));
+        return $this->mergeSorted($this->sort($leftArray), $this->sort($rightArray));
     }
 
-    private function mergeSort(array $leftArray, array $rightArray): array
+    private function mergeSorted(array $leftArray, array $rightArray): array
     {
         $result = [];
         $leftIndex = 0;
