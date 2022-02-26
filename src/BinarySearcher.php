@@ -2,13 +2,18 @@
 
 namespace Fnsc\Katas;
 
+use Fnsc\Katas\Exceptions\TargetException;
+
 class BinarySearcher
 {
     private array $data;
     private int $start = 0;
     private int $end = 0;
 
-    public function search(array $data, mixed $target): bool
+    /**
+     * @throws TargetException
+     */
+    public function search(array $data, mixed $target): mixed
     {
         sort($data);
         $this->data = $data;
@@ -17,16 +22,19 @@ class BinarySearcher
         return $this->binarySearch($target);
     }
 
-    private function binarySearch(mixed $target): bool
+    /**
+     * @throws TargetException
+     */
+    private function binarySearch(mixed $target): mixed
     {
         if ($this->isStartBiggerThanTheEnd()) {
-            return false;
+            throw TargetException::doesNotExists();
         }
 
         $midIndex = $this->getMidIndex($this->start, $this->end);
 
         if ($this->data[$midIndex] === $target) {
-            return true;
+            return $this->data[$midIndex];
         }
 
         if ($this->data[$midIndex] > $target) {
