@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Fnsc\Katas\MergeSorter;
+use Katas\MergeSorter;
 use PHPUnit\Framework\TestCase;
 
 class MergeSorterTest extends TestCase

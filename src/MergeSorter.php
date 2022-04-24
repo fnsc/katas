@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnsc\Katas;
+namespace Katas;
 
 final class MergeSorter
 {

@@ -1,22 +1,17 @@
 <?php
 
-namespace Fnsc\Katas;
+namespace Katas;
 
-use Fnsc\Katas\Exceptions\TargetException;
+use Katas\Exceptions\TargetException;
 
 final class BinarySearcher
 {
-    private MergeSorter $sorter;
-
     private int $start = 0;
-
     private int $end = 0;
-
     private array $data;
 
-    public function __construct(MergeSorter $sorter)
+    public function __construct(private readonly MergeSorter $sorter)
     {
-        $this->sorter = $sorter;
     }
 
     /**
@@ -24,7 +19,7 @@ final class BinarySearcher
      */
     public function search(array $data, mixed $target): mixed
     {
-        $this->data = $this->sorter->sort($data);
+        $this->setData($data);
         $this->setEnd();
 
         return $this->binarySearch($target);
@@ -80,5 +75,10 @@ final class BinarySearcher
     private function getMidIndex(int $start, int $end): int
     {
         return floor(($start + $end) / 2);
+    }
+
+    private function setData(array $data): void
+    {
+        $this->data = $this->sorter->sort($data);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Fnsc\Katas\BinarySearcher;
-use Fnsc\Katas\Exceptions\TargetException;
-use Fnsc\Katas\MergeSorter;
+use Katas\BinarySearcher;
+use Katas\Exceptions\TargetException;
+use Katas\MergeSorter;
 use PHPUnit\Framework\TestCase;
 
 class BinarySearchTest extends TestCase

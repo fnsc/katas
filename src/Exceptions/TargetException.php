@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnsc\Katas\Exceptions;
+namespace Katas\Exceptions;
 
 use Exception;
 

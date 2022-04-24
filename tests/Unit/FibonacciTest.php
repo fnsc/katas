@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Fnsc\Katas\Fibonacci;
+use Katas\Fibonacci;
 use PHPUnit\Framework\TestCase;
 
 class FibonacciTest extends TestCase
