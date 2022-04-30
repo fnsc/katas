@@ -6,9 +6,12 @@ use Katas\Exceptions\TargetException;
 
 final class BinarySearcher
 {
+    /**
+     * @var int[]
+     */
+    private array $data;
     private int $start = 0;
     private int $end = 0;
-    private array $data;
 
     public function __construct(private readonly MergeSorter $sorter)
     {
@@ -17,7 +20,7 @@ final class BinarySearcher
     /**
      * @throws TargetException
      */
-    public function search(array $data, mixed $target): mixed
+    public function search(array $data, int $target): int
     {
         $this->setData($data);
         $this->setEnd();
@@ -28,13 +31,13 @@ final class BinarySearcher
     /**
      * @throws TargetException
      */
-    private function binarySearch(mixed $target): mixed
+    private function binarySearch(int $target): int
     {
         if ($this->isStartBiggerThanTheEnd()) {
             throw TargetException::doesNotExists();
         }
 
-        $midIndex = $this->getMidIndex($this->start, $this->end);
+        $midIndex = $this->getMidIndex();
 
         if ($this->data[$midIndex] === $target) {
             return $this->data[$midIndex];
@@ -53,7 +56,7 @@ final class BinarySearcher
 
     private function setEnd(?int $value = null): void
     {
-        if ($value === null) {
+        if (null === $value) {
             $this->end = count($this->data) - 1;
 
             return;
@@ -72,9 +75,9 @@ final class BinarySearcher
         return $this->start > $this->end;
     }
 
-    private function getMidIndex(int $start, int $end): int
+    private function getMidIndex(): int
     {
-        return floor(($start + $end) / 2);
+        return floor(($this->start + $this->end) / 2);
     }
 
     private function setData(array $data): void

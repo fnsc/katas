@@ -1,10 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+namespace Katas;
 
-use Katas\BinarySearcher;
 use Katas\Exceptions\TargetException;
-use Katas\MergeSorter;
 use PHPUnit\Framework\TestCase;
 
 class BinarySearchTest extends TestCase
@@ -12,7 +10,7 @@ class BinarySearchTest extends TestCase
     public function testShouldReturnTrueWhenFindsTheTargetInAnArray(): void
     {
         // Set
-        $data = [1,54,2,3,65,1,67,12345,6,2345,3245,123,4,41,4];
+        $data = [1, 54, 2, 3, 65, 1, 67, 12345, 6, 2345, 3245, 123, 4, 41, 4];
         $expected = $target = 3245;
 
         $sorter = new MergeSorter();
@@ -28,8 +26,8 @@ class BinarySearchTest extends TestCase
     public function testShouldReturnFalseWhenDoesNotFindTheTargetInAnArray(): void
     {
         // Set
-        $data = [1,54,2,3,65,1,67,12345,6,2345,3245,123,4,41,4];
-        $target = 1000000000;
+        $data = [1, 54, 2, 3, 65, 1, 67, 12345, 6, 2345, 3245, 123, 4, 41, 4];
+        $target = 1_000_000_000;
 
         $sorter = new MergeSorter();
         $searcher = new BinarySearcher($sorter);

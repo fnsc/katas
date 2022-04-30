@@ -1,8 +1,7 @@
 <?php
 
-namespace Tests\Unit;
+namespace Katas;
 
-use Katas\MergeSorter;
 use PHPUnit\Framework\TestCase;
 
 class MergeSorterTest extends TestCase
