@@ -1,6 +1,6 @@
 <?php
 
-namespace Fnsc\Katas;
+namespace Katas;
 
 final class MergeSorter
 {
@@ -18,7 +18,10 @@ final class MergeSorter
         $leftArray = array_slice($data, 0, $middleIndex);
         $rightArray = array_slice($data, $middleIndex, $elementsQuantity);
 
-        return $this->mergeSorted($this->sort($leftArray), $this->sort($rightArray));
+        return $this->mergeSorted(
+            $this->sort($leftArray),
+            $this->sort($rightArray)
+        );
     }
 
     private function mergeSorted(array $leftArray, array $rightArray): array
@@ -31,7 +34,12 @@ final class MergeSorter
             $this->isIndexLowerThanTheArraySize($leftArray, $leftIndex) &&
             $this->isIndexLowerThanTheArraySize($rightArray, $rightIndex)
         ) {
-            if ($this->isLeftArrayElementLower($leftArray[$leftIndex], $rightArray[$rightIndex])) {
+            if (
+                $this->isLeftArrayElementLower(
+                    $leftArray[$leftIndex],
+                    $rightArray[$rightIndex]
+                )
+            ) {
                 $result[] = $leftArray[$leftIndex];
                 $leftIndex += 1;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fnsc\Katas;
+namespace Katas;
 
-final class Fibonacci
+final class FibonacciMemoized
 {
     public function calculate(int $index, array &$memo = []): int
     {
@@ -14,7 +14,13 @@ final class Fibonacci
             return 1;
         }
 
-        $memo["{$index}"] = $this->calculate($index - 1, $memo) + $this->calculate($index - 2, $memo);
+        $memo["{$index}"] = $this->calculate(
+            $index - 1,
+            $memo
+        ) + $this->calculate(
+            $index - 2,
+            $memo
+        );
 
         return $memo["{$index}"];
     }
