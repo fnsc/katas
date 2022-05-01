@@ -9,7 +9,7 @@ class PrimeFactorsTest extends TestCase
     /**
      * @dataProvider getPrimeFactorsScenarios
      */
-    public function testShouldGeneratesPrimeFactorsForOne(int $number, array $expected): void
+    public function testShouldGeneratesPrimeFactors(int $number, array $expected): void
     {
         // Set
         $factors = new PrimeFactors();
