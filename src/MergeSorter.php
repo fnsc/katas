@@ -41,13 +41,13 @@ final class MergeSorter
                 )
             ) {
                 $result[] = $leftArray[$leftIndex];
-                $leftIndex += 1;
+                $leftIndex++;
 
                 continue;
             }
 
             $result[] = $rightArray[$rightIndex];
-            $rightIndex += 1;
+            $rightIndex++;
         }
 
         return [

@@ -10,10 +10,9 @@ class FibonacciMemoizedTest extends TestCase
     {
         // Set
         $fibonacci = new FibonacciMemoized();
-        $memo = [];
 
         // Actions
-        $result = $fibonacci->calculate(50, $memo);
+        $result = $fibonacci->calculate(50);
 
         // Assertions
         $this->assertSame(12_586_269_025, $result);
